@@ -22,7 +22,7 @@ const Stake = () => {
     <div className="relative rounded-lg border border-gray-100 bg-white p-4 shadow-md dark:border-gray-600 dark:bg-gray-700">
       <Close onClick={onDelete}></Close>
       <h1 className="text-2xl dark:text-gray-300">{bundleItem.action}</h1>
-      <div className="flex items-center mt-3">
+      <div className="mt-4 flex">
         <TokenSelector
           chain={selectedChain}
           inputValue={bundleItem.amount}
@@ -39,7 +39,7 @@ const Stake = () => {
             });
           }}
         />
-            <div className="text-slate-900 mr-6 ml-6">On</div>
+        <span className="pt-2 pr-2 dark:text-gray-200">On</span>
         <div className="w-48">
           <ProtocolSelector
             chain={selectedChain}
