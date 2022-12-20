@@ -21,8 +21,8 @@ interface TokenSelectorParams {
 }
 
 type Token = {
-  "label": string,
-  "value": string,
+  label: string;
+  value: string;
 };
 
 const TokenSelector = ({
@@ -38,15 +38,15 @@ const TokenSelector = ({
   const chainIdMap = useTokenStore((state) => state.chainIdMap);
 
   useEffect(() => {
-      const chainId:number = ChainId[chain as keyof typeof ChainId];
-      const data = chainIdMap[chainId]?.filter((t: any) =>
-          (!filter || t.address in filter)
-      );
-      const options = data?.map((t: any) => ({
-        label: t.symbol,
-        value: t.address,
-      }));
-      setTokenOptions(options);
+    const chainId: number = ChainId[chain as keyof typeof ChainId];
+    const data = chainIdMap[chainId]?.filter(
+      (t: any) => !filter || filter.includes(t.address.toLowerCase())
+    );
+    const options = data?.map((t: any) => ({
+      label: t.symbol,
+      value: t.address,
+    }));
+    setTokenOptions(options);
   }, [chain, filter]);
 
   return (
