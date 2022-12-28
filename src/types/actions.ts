@@ -24,11 +24,13 @@ export const ActionPatternMembers = {
 };
 
 const _UniV3SwapBase = z.object({
-  tokenIn: z.string(),
-  tokenOut: z.string(),
+  tokenIn: z.string(), // update this
+  tokenOut: z.string(), // update this 
   slippage: z.number().optional(),
   feeTier: z.number().optional(),
 });
+
+// const UniswapBaseParamTokens = 
 
 const UniV3SwapSetAmountIn = _UniV3SwapBase.extend({
   action: z.literal(Actions.UniV3SwapSetAmountIn),
@@ -46,7 +48,7 @@ export type UniV3SwapSetAmountOut = z.infer<typeof UniV3SwapSetAmountOut>;
 
 const AaveV2Borrow = z.object({
   action: z.literal(Actions.AaveV2Borrow),
-  token: z.string(),
+  token: z.string(), // update this 
   amount: z.string(),
   interestRateMode: z.enum(["Stable", "Variable"]),
   borrow: z.boolean(),
@@ -55,10 +57,13 @@ export type AaveV2Borrow = z.infer<typeof AaveV2Borrow>;
 
 const AaveV2Lend = z.object({
   action: z.literal(Actions.AaveV2Lend),
-  token: z.string(),
+  token: z.string(), // update this 
   amount: z.string(),
   deposit: z.boolean(),
 });
+
+// const AaveLendParamToken = 
+
 export type AaveV2Lend = z.infer<typeof AaveV2Lend>;
 
 const LidoStakeParamToken = z.enum([
@@ -80,7 +85,7 @@ const ConvexStakeParamToken = z.enum([
 
 const ConvexStake = z.object({
   action: z.literal(Actions.ConvexStake),
-  token: LidoStakeParamToken,
+  token: ConvexStakeParamToken,
   amount: z.string(),
 });
 export type ConvexStake = z.infer<typeof ConvexStake>;
